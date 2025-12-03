@@ -4,13 +4,15 @@
       "id": "1", 
       "name": "Jaime Zapata", 
       "role": "admin", 
-      "email": "admin@credi.com" 
+      "email": "admin@credi.com",
+      "password": "password"
     },
     { 
       "id": "2", 
       "name": "Estudiante Demo", 
-      "role": "client", 
-      "email": "user@credi.com" 
+      "role": "socio", 
+      "email": "user@credi.com",
+      "password": "password"  
     }
   ],
   "requests": [

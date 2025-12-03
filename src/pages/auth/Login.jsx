@@ -1,12 +1,33 @@
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { alertaGeneral, alertaRedireccion } from "../../utils/alertas";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { generarToken } from "../../utils/generadores";
 import { guardarLocalStorage } from "../../utils/local-storage";
+import { endpoints } from "../../api/servicios";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPasword] = useState("");
+  const [usuarios, setUsuarios] = useState([]);
+
+  function getUsuarios() {
+    fetch(endpoints.users)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setUsuarios(data);
+      });
+  }
+
+  useEffect(() => {
+    getUsuarios();
+  }, []);
+
+  /* 
+    try - catch 
+    then - catch
+  */
+
   let redirection = useNavigate();
   function iniciarSesion() {
     if (email == "correo@correo.com" && password == "root") {
